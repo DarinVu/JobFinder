@@ -1,0 +1,25 @@
+.modal {
+    background: rgba(0,0,0, .5);
+}
+
+.form-control.ng-touched.ng-invalid {
+    border:1px solid red;
+}
+
+.warning-message {
+    color: red;
+    font-style: italic;
+}
+
+.submit {
+    background-color: #598392;
+    color: white;
+}
+
+#requirement {
+    width: 98%;
+}
+
+.requirement-container {
+    display: flex;
+}

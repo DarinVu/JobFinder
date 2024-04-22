@@ -1,0 +1,20 @@
+.menu {
+    margin-left: 20px;
+}
+
+.menu-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 10em;
+
+}
+
+hr {
+    margin-right: 3em;
+}
+
+.my-dropdown {
+    float: right;
+}
+

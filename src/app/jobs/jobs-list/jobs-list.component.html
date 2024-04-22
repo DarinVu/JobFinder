@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="list-group">
+        <app-jobs-item
+            *ngFor="let job of jobs; let i = index"
+            [job]="job"
+            [index]="i"
+            (click)="onGetDetails(i)"
+            style="cursor: pointer;"></app-jobs-item>
+    </div>
+   
+    
+</div>

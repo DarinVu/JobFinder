@@ -1,0 +1,42 @@
+<div class="menu-container">
+    <div>
+        <h1 style="color: #598392">{{ job.position }}</h1>
+    </div>
+    <div>
+        <div class="dropdown-center">
+            <a (clickOutside)=close() class="menu">
+                <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="25" 
+                    height="25" 
+                    fill="black" 
+                    class="bi bi-three-dots" 
+                    viewBox="0 0 16 16"
+                    style="cursor:pointer;"
+                    (click)="onShow()">
+                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>    
+                </svg>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-start" [ngClass]="{show : show}">
+              <li><a class="dropdown-item" (click)="onDelete()">Delete</a></li>
+              <li><a class="dropdown-item" (click)="onEdit()">Edit</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+<h4>Company: {{ job.company}}</h4>
+<h4>Location: {{ job.location}}</h4>
+<hr>
+<p>Job Description: {{ job.description }}</p>
+<p>Requirements: </p>
+<ul>
+    <li *ngFor="let requirement of job.requirements">
+        {{ requirement.requirement }}
+    </li>
+</ul>
+<p>Contact: {{ job.contact }}</p>
+
