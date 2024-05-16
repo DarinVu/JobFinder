@@ -56,10 +56,7 @@ export class JobsPostComponent implements OnInit{
       this.jobForm.value['contact']
     )
     this.jobsService.addJob(newJob);
-    console.log(newJob);
-    this.jobStorageService.storeJobs()
-    console.log(this.jobForm)
-    
+    this.jobStorageService.storeJobs();
   }
 
   openModal() {

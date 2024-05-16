@@ -2,14 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import { JobsService } from './jobs.service';
 import { Job } from './job.model';
-import { map, tap } from 'rxjs/operators';
+import { map, take, tap } from 'rxjs/operators';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class JobStorageService {
 
-    constructor(private http: HttpClient, private jobsService: JobsService) {}
+    constructor(private http: HttpClient, private jobsService: JobsService, private authService: AuthService) {}
 
     storeJobs() {
         const jobs = this.jobsService.getJobs();

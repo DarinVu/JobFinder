@@ -1,6 +1,7 @@
-<app-header></app-header>
-<div class="row justify-content-md-center">
-  <div class="col-xs-12 col-md-6">
+
+<div class="row justify-content-md-around" style="background-color: #e0e1dd; padding-top: 2em;">
+  <div class="col-xs-12 col-md-5">
+    <h1>Fill Out The Form To Post Your Job</h1>
     <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-xs-12">
@@ -144,5 +145,8 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="col-xs-12 col-md-6">
+    <img src="../../../assets/post-page-image.svg">
   </div>
 </div>

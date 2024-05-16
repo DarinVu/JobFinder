@@ -23,8 +23,6 @@ export class JobDetailsComponent implements OnInit{
         this.job = this.jobsService.getJob(this.jobId);
       }
     )
-    console.log(this.job.requirements[0]["requirement"])
-
   }
 
   onEdit() {

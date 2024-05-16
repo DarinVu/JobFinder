@@ -6,6 +6,8 @@ import { JobDetailsComponent } from './jobs/job-details/job-details.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { JobsEditComponent } from './jobs/jobs-edit/jobs-edit.component';
 import { JobsResolverService } from './jobs/jobs-resolver.service';
+import { AuthComponent } from './auth/auth.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
     { path: '', redirectTo: 'welcome', pathMatch: 'full'},
@@ -15,7 +17,8 @@ const routes: Routes = [
         { path: ':id/edit', component: JobsEditComponent, resolve: [JobsResolverService] }
 
     ]},
-    { path: 'post', component: JobsPostComponent },
+    { path: 'post', component: JobsPostComponent, canActivate: [AuthGuard] },
+    { path: 'auth/:status', component: AuthComponent }
 
 ] 
 

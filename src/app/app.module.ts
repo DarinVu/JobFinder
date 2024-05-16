@@ -10,11 +10,13 @@ import { JobsItemComponent } from './jobs/jobs-list/jobs-item/jobs-item.componen
 import { JobsPostComponent } from './jobs/jobs-post/jobs-post.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { JobsEditComponent } from './jobs/jobs-edit/jobs-edit.component';
 import { ClickOutsideDirective } from './shared/click-outside.directive';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { AuthComponent } from './auth/auth.component';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -29,15 +31,16 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     JobsEditComponent,
     ClickOutsideDirective,
     LoadingSpinnerComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-
+    
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

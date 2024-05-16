@@ -1,0 +1,62 @@
+.btn {
+    background-color: #598392;
+}
+
+.heading-message {
+    text-align: center;
+    color: #598392;
+}
+
+
+h1 {
+    margin-bottom: 25px;
+}
+
+.form-control.ng-touched.ng-invalid {
+    border-color: red;
+}
+
+.warning-message {
+    color: red;
+    font-style: italic;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+form {
+    margin-bottom: 40px;
+}
+
+.loading-spinner{ 
+    display: flex;
+    justify-content: center;
+}
+
+.submit-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.modal {
+    background: rgba(0,0,0, .5);
+    text-align: center;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-header{
+    display: flex;
+    justify-content: center;
+}

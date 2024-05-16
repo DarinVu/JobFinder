@@ -1,17 +1,16 @@
 .active {
     /* background-color: #252422; */
-    background-color: #124559;
-    border-color: #124559;
+    background-color: #598392;
+    border-color: #598392;
 }
-
+/* #124559 */
 .menu {
     font-size: 1.5rem;
     color: black;
     text-decoration: none;
 }
 
-.menuActive { 
-    color: white;
-} 
+
+
 
 
