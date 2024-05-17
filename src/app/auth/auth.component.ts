@@ -18,7 +18,9 @@ export class AuthComponent implements OnInit{
 
   constructor(private route: ActivatedRoute, private authService: AuthService, private router: Router) {}
 
+
   ngOnInit(): void {
+    //the route parameter "status" will be 0 for login and 1 for sign up
     this.route.params.subscribe(
       (params: Params) => {
         if (+params['status'] == 0) {
@@ -41,6 +43,7 @@ export class AuthComponent implements OnInit{
 
     this.isLoading = true;
 
+    //call the AuthService method login or signup based on the current status
     if (this.loginStatus) {
       this.authService.login(email, password).subscribe(
         resData => {
@@ -49,20 +52,17 @@ export class AuthComponent implements OnInit{
           this.router.navigate(['/jobs']);
         }, 
         errorMessage => {
-          
           this.error = errorMessage
-          
           this.isLoading = false;
         }
       );
     } else {
-      
       this.authService.signup(email, password).subscribe(
         resData => {
           this.isLoading = false;
           this.error = null;
-          // this.openModal();
-          this.router.navigate(['/jobs']);
+          this.openModal();
+          // this.router.navigate(['/jobs']);
         }, 
         errorMessage => {
           this.error = errorMessage

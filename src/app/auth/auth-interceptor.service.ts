@@ -9,6 +9,7 @@ export class AuthInterceptorService implements HttpInterceptor {
 
     constructor(private authService: AuthService) {}
 
+    //attaches the unique user token to outgoing authentication requests
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         this.authService.user.subscribe();
         return this.authService.user.pipe(

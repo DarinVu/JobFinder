@@ -3,8 +3,8 @@ import { Injectable } from "@angular/core";
 import { catchError, tap } from "rxjs/operators";
 import { BehaviorSubject, Subject, throwError } from "rxjs"
 import { User } from "./user.model";
-import { HashLocationStrategy } from "@angular/common";
 import { Router } from "@angular/router";
+import { environment } from "../../environments/environment";
 
 
 interface AuthResponseData {
@@ -17,9 +17,9 @@ interface AuthResponseData {
     registered?: boolean
 }
 
-@Injectable(
-    {providedIn: 'root'}
-)
+@Injectable({
+    providedIn: 'root'
+})
 export class AuthService {
     user = new BehaviorSubject<User>(null);
     private tokenExpirationtimer: any;
@@ -28,7 +28,7 @@ export class AuthService {
 
     signup(email: string, password: string) {
         return this.http.post<AuthResponseData>(
-            'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCFddxoThV44Z3yTx0uiPWTYT5mhRtua3U',
+            'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + environment.firebaseAPIKey,
             {
                 email: email,
                 password: password,
@@ -45,7 +45,7 @@ export class AuthService {
     }
 
     login(email: string, password: string) {
-        return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCFddxoThV44Z3yTx0uiPWTYT5mhRtua3U',
+        return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + environment.firebaseAPIKey,
             {
                 email: email,
                 password: password,
@@ -66,7 +66,7 @@ export class AuthService {
             email: string;
             id: string;
             _token: string;
-            _tokenExpirationData: string;
+            _tokenExpirationDate: string;
         } = JSON.parse(localStorage.getItem('userData'));
         if (!userData) {
             return;
@@ -75,12 +75,12 @@ export class AuthService {
             userData.email,
             userData.id, 
             userData._token, 
-            new Date(userData._tokenExpirationData)
+            new Date(userData._tokenExpirationDate)
         );
 
         if (loadedUser.token) {
             this.user.next(loadedUser);
-            const expirationDuration = new Date(userData._tokenExpirationData).getTime() - new Date().getTime();
+            const expirationDuration = new Date(userData._tokenExpirationDate).getTime() - new Date().getTime();
             this.autoLogout(expirationDuration);
         }
     }

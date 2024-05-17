@@ -3,8 +3,8 @@
         <h1 style="color: #598392">{{ job.position }}</h1>
     </div>
     <div>
-        <div class="dropdown-center">
-            <a (clickOutside)=close() class="menu">
+        <div *ngIf="isAuthenticated" class="dropdown-center">
+            <a (clickOutside)="close()" class="menu">
                 <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     width="25" 

@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
-import { JobsService } from '../jobs.service';
-import { Job } from '../job.model';
+import { JobsService } from '../jobs/jobs.service';
+import { Job } from '../jobs/job.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { JobStorageService } from '../job-storage.service';
+import { JobStorageService } from '../jobs/job-storage.service';
 
 @Component({
-  selector: 'app-jobs-post',
-  templateUrl: './jobs-post.component.html',
-  styleUrl: './jobs-post.component.css'
+  selector: 'app-post',
+  templateUrl: './post.component.html',
+  styleUrl: './post.component.css'
 })
-export class JobsPostComponent implements OnInit{
+export class PostComponent implements OnInit{
   jobForm: FormGroup
   display = '';
 
